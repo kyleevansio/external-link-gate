@@ -24,7 +24,7 @@
 
         <div class="elg-modal-controls">
 
-            <a href="#" class="elg-button elg-button-confirm"><?php _e( 'Continue to Site', 'external_link_gate' ); ?></a>
+            <a href="#" target="_blank" class="elg-button elg-button-confirm"><?php _e( 'Continue to Site', 'external_link_gate' ); ?></a>
 
             <button class="elg-cancel-button js-elg-close-modal"><?php _e( 'Cancel', 'external_link_gate' ); ?></button>
 
