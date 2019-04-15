@@ -14,7 +14,11 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="elg-icon" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z"/></svg>
         </button>
 
-        <h3 class="elg-modal-title"><?php _e( 'You are about to leave this site', 'external_link_gate' ); ?></h3>
+        <header class="elg-header">
+
+            <h3 class="elg-modal-title"><?php _e( 'You are about to leave this site', 'external_link_gate' ); ?></h3>
+
+        </header>
 
         <div class="elg-modal-content">
 
@@ -28,9 +32,11 @@
 
             <button class="elg-cancel-button js-elg-close-modal"><?php _e( 'Cancel', 'external_link_gate' ); ?></button>
 
-            <p><?php _e( 'URL: <span class="elg-url"></span>', 'external_link_gate' ); ?></p>
-
         </div> <!-- /.elg-modal-controls -->
+
+        <footer class="elg-footer">
+            <p><?php _e( 'URL: <span class="elg-url"></span>', 'external_link_gate' ); ?></p>
+        </footer>
 
     </div> <!-- /#elg-modal -->
 

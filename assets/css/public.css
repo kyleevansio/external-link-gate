@@ -1,3 +1,9 @@
+
+.elg-modal-container,
+.elg-modal-container * {
+    box-sizing: border-box;
+}
+
 .elg-modal-container {
     display: none;
     position: fixed;
@@ -11,18 +17,6 @@
 }
 .elg-modal-container.is-open {
     display: block;
-}
-
-.elg-modal {
-    position: absolute;
-    top: 32px;
-    left: 50vw;
-    width: 500px;
-    max-width: 100%;
-    margin-bottom: 32px;
-    padding: 16px;
-    background-color: #fff;
-    transform: translateX(-50%);
 }
 
 body.elg-modal-open {
@@ -40,4 +34,93 @@ body.elg-modal-open {
     position: absolute !important;
     width: 1px;
     word-wrap: normal !important;
+}
+
+.elg-modal {
+    position: absolute;
+    top: 32px;
+    left: 50vw;
+    width: 500px;
+    max-width: 100%;
+    margin-bottom: 32px;
+    padding: 16px;
+    background-color: #fff;
+    transform: translateX(-50%);
+}
+
+.elg-modal button,
+.elg-modal .elg-button,
+.elg-modal button:hover,
+.elg-modal button:focus,
+.elg-modal .elg-button:hover,
+.elg-modal .elg-button:focus {
+    display: inline-block;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: .5em .75rem;
+    background: #000;
+    color: #fff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.2;
+    text-decoration: none;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    -webkit-appearance: none;
+}
+.elg-modal button:hover,
+.elg-modal button:focus,
+.elg-modal .elg-button:hover,
+.elg-modal .elg-button:focus {
+    background: rgba( 0, 0, 0, .8 );
+}
+.elg-modal button:focus,
+.elg-modal .elg-button:focus {
+    outline: thin dotted;
+    outline-offset: -4px;
+}
+
+.elg-modal .elg-close-modal-button,
+.elg-modal .elg-close-modal-button:hover,
+.elg-modal .elg-close-modal-button:focus {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    padding: 0;
+    background: none;
+    color: #000;
+    line-height: 1;
+}
+.elg-modal .elg-close-modal-button:hover,
+.elg-modal .elg-close-modal-button:focus {
+    border-bottom: 2px solid #000;
+}
+
+.elg-modal-title {
+    margin: 0;
+    padding: 0 24px 0 0;
+    font-size: 2rem;
+    line-height: 1.2;
+    color: #000;
+}
+
+.elg-header {
+    margin: 0 0 16px;
+    padding: 0 0 16px;
+    border-bottom: 2px solid #000;
+}
+
+.elg-footer {
+    margin: 24px 0 0;
+    padding: 8px 0 0;
+    font-size: .75rem;
+    border-top: 1px solid #f0f0f0;
+}
+
+.elg-footer > p {
+    margin: 0;
+    padding: 0;
 }
