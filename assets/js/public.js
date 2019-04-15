@@ -14,7 +14,7 @@ jQuery(function($){
 		}
 
         $( this ).addClass( 'js-elg-open-modal' );
-        $( this ).attr( 'href', window.location.host + '?elg=1&elg_url=' + encodeURIComponent( url ) );
+        $( this ).attr( 'href', window.location.href + '?elg=1&elg_url=' + encodeURIComponent( url ) );
         $( this ).data( 'url', url );
 
     } );
@@ -29,6 +29,15 @@ jQuery(function($){
         openModal( $( this ).data( 'url' ) );
 
     } );
+
+    /**
+     * Open modal if the page has been reloaded with the right query parameters
+     */
+	if ( getURLParameter( 'elg' ) && getURLParameter( 'elg_url' ) ) {
+
+		openModal( decodeURIComponent( getURLParameter( 'elg_url' ) ) );
+
+	}
 
     /**
      * Close modal when close button is clicked
@@ -65,5 +74,29 @@ jQuery(function($){
         $( '#elg-modal-container' ).removeClass( 'is-open' );
 
     }
+
+    /**
+	 * Get URL parameter
+	 *
+	 * @param string sParam
+	 */
+	function getURLParameter( sParam ) {
+
+		var sPageURL = window.location.search.substring( 1 );
+		var sURLVariables = sPageURL.split( '&' );
+
+		for ( var i = 0; i < sURLVariables.length; i++ ) {
+
+			var sParameterName = sURLVariables[i].split( '=' );
+
+			if ( sParameterName[0] == sParam ) {
+
+				return sParameterName[1];
+
+			}
+
+		}
+
+	}
 
 });
