@@ -3,6 +3,11 @@
  * Modal template
  */
 
+$options = get_option( 'external-link-gate' );
+
+$title = ( isset( $options['title'] ) ) ? $options['title'] : '';
+$content = ( isset( $options['content'] ) ) ? $options['content'] : '';
+
 ?>
 
 <div class="elg-modal-container" id="elg-modal-container">
@@ -16,13 +21,13 @@
 
         <header class="elg-header">
 
-            <h3 class="elg-modal-title"><?php _e( 'You are about to leave this site', 'external_link_gate' ); ?></h3>
+            <h3 class="elg-modal-title"><?php echo esc_html( $title ); ?></h3>
 
         </header>
 
         <div class="elg-modal-content">
 
-            <p><?php _e( 'You just clicked a link that goes away from our site. Do you wish to continue?', 'external_link_gate' ); ?></p>
+            <p><?php echo $content; ?></p>
 
         </div> <!-- /.elg-modal-content -->
 
