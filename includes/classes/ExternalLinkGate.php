@@ -6,6 +6,11 @@
 class ExternalLinkGate {
 
     /**
+     * Settings
+     */
+    protected $settings;
+
+    /**
      * Setup plugin
      */
     public function setup() {
@@ -15,6 +20,10 @@ class ExternalLinkGate {
 
         // Load modal template
         add_action( 'wp_footer', array( $this, 'load_modal' ) );
+
+        // Setup settings
+        $this->settings = new ExternalLinkGateSettings();
+        $this->settings->setup();
 
     }
 
