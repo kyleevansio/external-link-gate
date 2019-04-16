@@ -17,4 +17,4 @@ require_once EXTERNALLINKGATE_PATH . 'includes/classes/ExternalLinkGate.php';
 
 // Init plugin
 $external_link_gate = new ExternalLinkGate();
-$external_link_gate->init();
+$external_link_gate->setup();

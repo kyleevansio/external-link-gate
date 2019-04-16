@@ -6,9 +6,9 @@
 class ExternalLinkGate {
 
     /**
-     * Init plugin
+     * Setup plugin
      */
-    public function init() {
+    public function setup() {
 
         // Enqueue scripts and styles
         add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
