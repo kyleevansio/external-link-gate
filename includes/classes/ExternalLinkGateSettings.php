@@ -35,7 +35,7 @@ class ExternalLinkGateSettings {
         add_settings_section(
             'external-link-gate-main',
             __( 'External Link Gate Settings', 'external_link_gate' ),
-            array( $this, 'main_settings_section' ),
+            '',
             'external-link-gate'
         );
 
@@ -97,15 +97,6 @@ class ExternalLinkGateSettings {
         </div> <!-- /.wrap -->
 
         <?php
-
-    }
-
-    /**
-     * Main Settings Section
-     */
-    public function main_settings_section() {
-
-        echo '<p>Main Settings</p>';
 
     }
 
