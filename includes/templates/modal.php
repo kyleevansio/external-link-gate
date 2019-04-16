@@ -27,7 +27,7 @@ $content = ( isset( $options['content'] ) ) ? $options['content'] : '';
 
         <div class="elg-modal-content">
 
-            <p><?php echo $content; ?></p>
+            <p><?php echo wpautop( wp_kses_post( $content ) ); ?></p>
 
         </div> <!-- /.elg-modal-content -->
 
