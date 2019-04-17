@@ -1,6 +1,8 @@
 jQuery(function($){
 
-    var isModalOpen = false;
+    var isModalOpen = false,
+        currentUrlParams = new URLSearchParams( window.location.search ),
+        siteRegex = new RegExp( window.location.host + '/' );
 
     /**
      * Apply appropriate class to external links
@@ -9,15 +11,22 @@ jQuery(function($){
 
         var url = this.href;
 
-		var site = new RegExp( window.location.host + '/' );
-
-		if ( site.test( url ) ) {
+		if ( siteRegex.test( url ) ) {
 			return;
 		}
 
+        var siteURL = new URL( window.location.href );
+        var siteURLParams = new URLSearchParams( siteURL.search );
+
         $( this ).addClass( 'js-elg-open-modal' );
-        $( this ).attr( 'href', window.location.href + '?elg=1&elg_url=' + encodeURIComponent( url ) );
         $( this ).data( 'url', url );
+
+        siteURLParams.set( 'elg', '1' );
+        siteURLParams.set( 'elg_url', encodeURIComponent( url ) );
+
+        siteURL.search = siteURLParams.toString();
+
+        $( this ).attr( 'href', siteURL.href );
 
     } );
 
@@ -35,10 +44,9 @@ jQuery(function($){
     /**
      * Open modal if the page has been reloaded with the right query parameters
      */
-    var params = new URLSearchParams( window.location.search );
-    if ( params.has( 'elg' ) && params.has( 'elg_url' ) ) {
+    if ( currentUrlParams.has( 'elg' ) && currentUrlParams.has( 'elg_url' ) ) {
 
-        openModal( decodeURIComponent( params.get( 'elg_url' ) ) );
+        openModal( decodeURIComponent( currentUrlParams.get( 'elg_url' ) ) );
 
     }
 
