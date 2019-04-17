@@ -34,7 +34,7 @@ class ExternalLinkGateSettings {
         // Register settings section
         add_settings_section(
             'external-link-gate-main',
-            __( 'External Link Gate Settings', 'external_link_gate' ),
+            '',
             '',
             'external-link-gate'
         );
@@ -108,6 +108,8 @@ class ExternalLinkGateSettings {
         ?>
 
         <div class="wrap">
+
+            <h1><?php _e( 'External Link Gate Settings', 'external_link_gate' ); ?></h1>
 
             <form method="post" action="options.php">
 
