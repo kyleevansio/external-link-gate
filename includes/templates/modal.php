@@ -10,6 +10,7 @@ $content = ( isset( $options['content'] ) ) ? $options['content'] : '';
 $continue_button_text = ( isset( $options['continue_button_text'] ) ) ? $options['continue_button_text'] : '';
 $cancel_button_text = ( isset( $options['cancel_button_text'] ) ) ? $options['cancel_button_text'] : '';
 $open_new_tab = ( !empty( $options['open_new_tab'] ) ) ? true : false;
+$show_url = ( !empty( $options['show_url'] ) ) ? true : false;
 
 ?>
 
@@ -42,9 +43,13 @@ $open_new_tab = ( !empty( $options['open_new_tab'] ) ) ? true : false;
 
         </div> <!-- /.elg-modal-controls -->
 
-        <footer class="elg-footer">
-            <p><?php _e( 'URL: <span class="elg-url"></span>', 'external_link_gate' ); ?></p>
-        </footer>
+        <?php if ( $show_url ) : ?>
+
+            <footer class="elg-footer">
+                <p><?php _e( 'URL: <span class="elg-url"></span>', 'external_link_gate' ); ?></p>
+            </footer>
+
+        <?php endif; ?>
 
     </div> <!-- /#elg-modal -->
 

@@ -92,6 +92,17 @@ class ExternalLinkGateSettings {
             )
         );
 
+        add_settings_field(
+            'show_url',
+            __( 'Show URL', 'external_link_gate' ),
+            array( $this, 'checkbox_field' ),
+            'external-link-gate',
+            'external-link-gate-main',
+            array(
+                'id' => 'show_url',
+            )
+        );
+
     }
 
     /**
