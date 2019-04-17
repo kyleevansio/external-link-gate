@@ -14,7 +14,7 @@ function elg_get_options() {
         'continue_button_text' => __( 'Continue to site', 'external-link-gate' ),
         'cancel_button_text' => __( 'Cancel', 'external-link-gate' ),
         'open_new_tab' => true,
-        'show_url' => false,
+        'show_url' => true,
     );
 
     $saved = get_option( 'external-link-gate' );
