@@ -51,6 +51,15 @@ jQuery(function($){
     } );
 
     /**
+     * Close modal when confirm link is clicked
+     */
+    $( document ).on( 'click', '.elg-button-confirm', function(e) {
+
+        closeModal();
+
+    } );
+
+    /**
      * Open Modal
      *
      * @param string url
