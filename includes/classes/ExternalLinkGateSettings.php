@@ -125,7 +125,7 @@ class ExternalLinkGateSettings {
      */
     public function settings_page() {
 
-        $this->options = get_option( 'external-link-gate' );
+        $this->options = elg_get_options();
 
         ?>
 

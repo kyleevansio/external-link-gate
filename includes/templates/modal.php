@@ -3,14 +3,7 @@
  * Modal template
  */
 
-$options = get_option( 'external-link-gate' );
-
-$title = ( isset( $options['title'] ) ) ? $options['title'] : '';
-$content = ( isset( $options['content'] ) ) ? $options['content'] : '';
-$continue_button_text = ( isset( $options['continue_button_text'] ) ) ? $options['continue_button_text'] : '';
-$cancel_button_text = ( isset( $options['cancel_button_text'] ) ) ? $options['cancel_button_text'] : '';
-$open_new_tab = ( !empty( $options['open_new_tab'] ) ) ? true : false;
-$show_url = ( !empty( $options['show_url'] ) ) ? true : false;
+$options = elg_get_options();
 
 ?>
 
@@ -25,25 +18,25 @@ $show_url = ( !empty( $options['show_url'] ) ) ? true : false;
 
         <header class="elg-header">
 
-            <h3 class="elg-modal-title"><?php echo esc_html( $title ); ?></h3>
+            <h3 class="elg-modal-title"><?php echo esc_html( $options['title'] ); ?></h3>
 
         </header>
 
         <div class="elg-modal-content">
 
-            <p><?php echo wpautop( wp_kses_post( $content ) ); ?></p>
+            <p><?php echo wpautop( wp_kses_post( $options['content'] ) ); ?></p>
 
         </div> <!-- /.elg-modal-content -->
 
         <div class="elg-modal-controls">
 
-            <a href="#" <?php if ( $open_new_tab ) echo 'target="_blank"'; ?> class="elg-button elg-button-confirm"><?php echo esc_html( $continue_button_text ); ?></a>
+            <a href="#" <?php if ( !empty( $options['open_new_tab'] ) ) echo 'target="_blank"'; ?> class="elg-button elg-button-confirm"><?php echo esc_html( $options['continue_button_text'] ); ?></a>
 
-            <button class="elg-cancel-button js-elg-close-modal"><?php echo esc_html( $cancel_button_text ); ?></button>
+            <button class="elg-cancel-button js-elg-close-modal"><?php echo esc_html( $options['cancel_button_text'] ); ?></button>
 
         </div> <!-- /.elg-modal-controls -->
 
-        <?php if ( $show_url ) : ?>
+        <?php if ( !empty( $options['show_url'] ) ) : ?>
 
             <footer class="elg-footer">
                 <p><?php _e( 'URL: <span class="elg-url"></span>', 'external_link_gate' ); ?></p>
