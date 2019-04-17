@@ -43,9 +43,12 @@ class ExternalLinkGateSettings {
         add_settings_field(
             'title',
             __( 'Title', 'external_link_gate' ),
-            array( $this, 'title_field' ),
+            array( $this, 'text_field' ),
             'external-link-gate',
-            'external-link-gate-main'
+            'external-link-gate-main',
+            array(
+                'id' => 'title'
+            )
         );
 
         add_settings_field(
@@ -101,13 +104,19 @@ class ExternalLinkGateSettings {
     }
 
     /**
-     * Title Field
+     * Basic text field
+     *
+     * @param array
      */
-    public function title_field() {
+    public function text_field( $args ) {
 
-        $title = ( isset( $this->options['title'] ) ) ? $this->options['title'] : '';
+        if ( empty( $args['id'] ) ) {
+            return;
+        }
 
-        echo '<input type="text" name="external-link-gate[title]" value="' . esc_attr( $title ) . '" class="widefat">';
+        $value = ( isset( $this->options[ $args['id'] ] ) ) ? $this->options[ $args['id'] ] : '';
+
+        echo '<input type="text" name="external-link-gate[' . esc_attr( $args['id'] ) . ']" value="' . esc_attr( $value ) . '" class="widefat">';
 
     }
 
