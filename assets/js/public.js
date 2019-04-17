@@ -108,6 +108,15 @@ jQuery(function($){
         $( 'body' ).removeClass( 'elg-modal-open' );
         $( '#elg-modal-container' ).removeClass( 'is-open' );
 
+        if ( currentUrlParams.has( 'elg' ) && currentUrlParams.has( 'elg_url' ) ) {
+
+            currentUrlParams.delete( 'elg' );
+            currentUrlParams.delete( 'elg_url' );
+
+            window.location.search = currentUrlParams.toString();
+
+        }
+
         isModalOpen = false;
 
     }
