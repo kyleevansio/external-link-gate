@@ -35,11 +35,12 @@ jQuery(function($){
     /**
      * Open modal if the page has been reloaded with the right query parameters
      */
-	if ( getURLParameter( 'elg' ) && getURLParameter( 'elg_url' ) ) {
+    var params = new URLSearchParams( window.location.search );
+    if ( params.has( 'elg' ) && params.has( 'elg_url' ) ) {
 
-		openModal( decodeURIComponent( getURLParameter( 'elg_url' ) ) );
+        openModal( decodeURIComponent( params.get( 'elg_url' ) ) );
 
-	}
+    }
 
     /**
      * Close modal when close button is clicked
@@ -102,29 +103,5 @@ jQuery(function($){
         isModalOpen = false;
 
     }
-
-    /**
-	 * Get URL parameter
-	 *
-	 * @param string sParam
-	 */
-	function getURLParameter( sParam ) {
-
-		var sPageURL = window.location.search.substring( 1 );
-		var sURLVariables = sPageURL.split( '&' );
-
-		for ( var i = 0; i < sURLVariables.length; i++ ) {
-
-			var sParameterName = sURLVariables[i].split( '=' );
-
-			if ( sParameterName[0] == sParam ) {
-
-				return sParameterName[1];
-
-			}
-
-		}
-
-	}
 
 });
