@@ -7,6 +7,8 @@ $options = get_option( 'external-link-gate' );
 
 $title = ( isset( $options['title'] ) ) ? $options['title'] : '';
 $content = ( isset( $options['content'] ) ) ? $options['content'] : '';
+$continue_button_text = ( isset( $options['continue_button_text'] ) ) ? $options['continue_button_text'] : '';
+$cancel_button_text = ( isset( $options['cancel_button_text'] ) ) ? $options['cancel_button_text'] : '';
 
 ?>
 
@@ -33,9 +35,9 @@ $content = ( isset( $options['content'] ) ) ? $options['content'] : '';
 
         <div class="elg-modal-controls">
 
-            <a href="#" target="_blank" class="elg-button elg-button-confirm"><?php _e( 'Continue to Site', 'external_link_gate' ); ?></a>
+            <a href="#" target="_blank" class="elg-button elg-button-confirm"><?php echo esc_html( $continue_button_text ); ?></a>
 
-            <button class="elg-cancel-button js-elg-close-modal"><?php _e( 'Cancel', 'external_link_gate' ); ?></button>
+            <button class="elg-cancel-button js-elg-close-modal"><?php echo esc_html( $cancel_button_text ); ?></button>
 
         </div> <!-- /.elg-modal-controls -->
 

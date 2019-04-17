@@ -59,6 +59,28 @@ class ExternalLinkGateSettings {
             'external-link-gate-main'
         );
 
+        add_settings_field(
+            'continue_button_text',
+            __( 'Continue Button Text', 'external_link_gate' ),
+            array( $this, 'text_field' ),
+            'external-link-gate',
+            'external-link-gate-main',
+            array(
+                'id' => 'continue_button_text',
+            )
+        );
+
+        add_settings_field(
+            'cancel_button_text',
+            __( 'Cancel Button Text', 'external_link_gate' ),
+            array( $this, 'text_field' ),
+            'external-link-gate',
+            'external-link-gate-main',
+            array(
+                'id' => 'cancel_button_text',
+            )
+        );
+
     }
 
     /**
