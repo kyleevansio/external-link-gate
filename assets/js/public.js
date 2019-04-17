@@ -1,5 +1,7 @@
 jQuery(function($){
 
+    var isModalOpen = false;
+
     /**
      * Apply appropriate class to external links
      */
@@ -60,6 +62,19 @@ jQuery(function($){
     } );
 
     /**
+     * Close modal on escape key
+     */
+    $( document ).on( 'keyup', function(e) {
+
+        if ( e.keyCode === 27 && isModalOpen ){
+
+            closeModal();
+
+        }
+
+    } );
+
+    /**
      * Open Modal
      *
      * @param string url
@@ -72,6 +87,8 @@ jQuery(function($){
         $( 'body' ).addClass( 'elg-modal-open' );
         $( '#elg-modal-container' ).addClass( 'is-open' );
 
+        isModalOpen = true;
+
     }
 
     /**
@@ -81,6 +98,8 @@ jQuery(function($){
 
         $( 'body' ).removeClass( 'elg-modal-open' );
         $( '#elg-modal-container' ).removeClass( 'is-open' );
+
+        isModalOpen = false;
 
     }
 
