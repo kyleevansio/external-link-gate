@@ -81,6 +81,17 @@ class ExternalLinkGateSettings {
             )
         );
 
+        add_settings_field(
+            'open_new_tab',
+            __( 'Open Continue Button in New Tab', 'external_link_gate' ),
+            array( $this, 'checkbox_field' ),
+            'external-link-gate',
+            'external-link-gate-main',
+            array(
+                'id' => 'open_new_tab',
+            )
+        );
+
     }
 
     /**
@@ -155,6 +166,23 @@ class ExternalLinkGateSettings {
             'media_buttons' => false,
             'textarea_name' => 'external-link-gate[content]',
         ) );
+
+    }
+
+    /**
+     * Checkbox field
+     *
+     * @param array $args
+     */
+    public function checkbox_field( $args ) {
+
+        if ( empty( $args['id'] ) ) {
+            return;
+        }
+
+        $checked = ( !empty( $this->options[ $args['id'] ] ) ) ? 'checked' : '';
+
+        echo '<input type="checkbox" name="external-link-gate[' . esc_attr( $args['id'] ) . ']" value="on" ' . $checked . '>';
 
     }
 
