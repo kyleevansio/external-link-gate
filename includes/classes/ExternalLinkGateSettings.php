@@ -34,7 +34,7 @@ class ExternalLinkGateSettings {
         // Register settings section
         add_settings_section(
             'external-link-gate-main',
-            '',
+            __( 'Modal Options', 'external_link_gate' ),
             '',
             'external-link-gate'
         );
