@@ -2,7 +2,8 @@ jQuery(function($){
 
     var isModalOpen = false,
         currentUrlParams = new URLSearchParams( window.location.search ),
-        siteRegex = new RegExp( window.location.host + '/' );
+        siteRegex = new RegExp( window.location.host + '/' ),
+        lastFocused;
 
     /**
      * Apply appropriate class to external links
@@ -36,6 +37,8 @@ jQuery(function($){
     $( document ).on( 'click', '.js-elg-open-modal', function(e) {
 
         e.preventDefault();
+
+        lastFocused = e.target;
 
         openModal( $( this ).data( 'url' ) );
 
@@ -117,6 +120,10 @@ jQuery(function($){
 
             window.location.search = currentUrlParams.toString();
 
+        }
+
+        if ( lastFocused ) {
+            lastFocused.focus();
         }
 
         isModalOpen = false;
