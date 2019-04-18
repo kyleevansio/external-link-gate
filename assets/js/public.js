@@ -96,6 +96,8 @@ jQuery(function($){
         $( 'body' ).addClass( 'elg-modal-open' );
         $( '#elg-modal-container' ).addClass( 'is-open' );
 
+        $( '.elg-close-modal-button' ).focus();
+
         isModalOpen = true;
 
     }
@@ -120,5 +122,32 @@ jQuery(function($){
         isModalOpen = false;
 
     }
+
+    /**
+     * Trap focus in modal
+     */
+    $( 'body' ).on( 'keyup', function(e){
+
+        if ( e.keyCode === 9 && isModalOpen ) {
+
+            if ( $.contains( document.getElementById( 'elg-modal-container' ), e.target ) ) {
+                return;
+            }
+
+            if ( e.shiftKey ) {
+
+                // Focus on last item in modal
+                $( '.elg-cancel-button' ).focus();
+
+            } else {
+
+                // Focus on first item in modal
+                $( '.elg-close-modal-button' ).focus();
+
+            }
+
+        }
+
+    } );
 
 });
