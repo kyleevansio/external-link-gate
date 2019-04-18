@@ -47,7 +47,8 @@ class ExternalLinkGateSettings {
             'external-link-gate',
             'external-link-gate-main',
             array(
-                'id' => 'title'
+                'id' => 'title',
+                'label_for' => 'external-link-gate-title',
             )
         );
 
@@ -67,6 +68,7 @@ class ExternalLinkGateSettings {
             'external-link-gate-main',
             array(
                 'id' => 'continue_button_text',
+                'label_for' => 'external-link-gate-continue-button-text',
             )
         );
 
@@ -78,6 +80,7 @@ class ExternalLinkGateSettings {
             'external-link-gate-main',
             array(
                 'id' => 'cancel_button_text',
+                'label_for' => 'external-link-gate-cancel-button-text',
             )
         );
 
@@ -161,8 +164,9 @@ class ExternalLinkGateSettings {
         }
 
         $value = ( isset( $this->options[ $args['id'] ] ) ) ? $this->options[ $args['id'] ] : '';
+        $id = ( !empty( $args['label_for'] ) ) ? $args['label_for'] : 'external-link-gate-' . $args['id'];
 
-        echo '<input type="text" name="external-link-gate[' . esc_attr( $args['id'] ) . ']" value="' . esc_attr( $value ) . '" class="widefat">';
+        echo '<input type="text" name="external-link-gate[' . esc_attr( $args['id'] ) . ']" value="' . esc_attr( $value ) . '" id="' . esc_attr( $id ) . '" class="widefat">';
 
     }
 
