@@ -99,7 +99,7 @@ jQuery(function($){
         $( 'body' ).addClass( 'elg-modal-open' );
         $( '#elg-modal-container' ).addClass( 'is-open' );
 
-        $( '.elg-close-modal-button' ).focus();
+        $( '.elg-button-confirm' ).focus();
 
         isModalOpen = true;
 
