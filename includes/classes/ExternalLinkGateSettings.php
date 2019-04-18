@@ -86,12 +86,13 @@ class ExternalLinkGateSettings {
 
         add_settings_field(
             'open_new_tab',
-            __( 'Open Continue Button in New Tab', 'external_link_gate' ),
+            __( 'Open Link in New Tab', 'external_link_gate' ),
             array( $this, 'checkbox_field' ),
             'external-link-gate',
             'external-link-gate-main',
             array(
                 'id' => 'open_new_tab',
+                'label_text' => __( 'Open continue button in new tab', 'external_link_gate' ),
             )
         );
 
@@ -103,6 +104,7 @@ class ExternalLinkGateSettings {
             'external-link-gate-main',
             array(
                 'id' => 'show_url',
+                'label_text' => __( 'Show URL at the bottom of the modal', 'external_link_gate' ),
             )
         );
 
@@ -197,7 +199,13 @@ class ExternalLinkGateSettings {
 
         $checked = ( !empty( $this->options[ $args['id'] ] ) ) ? 'checked' : '';
 
-        echo '<input type="checkbox" name="external-link-gate[' . esc_attr( $args['id'] ) . ']" value="on" ' . $checked . '>';
+        $input = '<input type="checkbox" name="external-link-gate[' . esc_attr( $args['id'] ) . ']" value="on" ' . $checked . '>';
+
+        if ( !empty( $args['label_text'] ) ) {
+            echo '<label>' . $input . esc_html( $args['label_text'] ) . '</label>';
+        } else {
+            echo $input;
+        }
 
     }
 
