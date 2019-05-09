@@ -2,7 +2,7 @@
 Contributors: scubakyle
 Tags: link-gate, modal, accessible
 Requires at least: 4.7
-Tested up to: 5.1
+Tested up to: 5.2
 Requires PHP: 5.2.4
 
 Warn visitors when opening third party links.
